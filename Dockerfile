@@ -13,8 +13,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Latest Torch (2026 Stack)
 RUN pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 
+# Install nano-vllm from source
+WORKDIR /src/nano-vllm
+RUN git clone https://github.com/GeeeekExplorer/nano-vllm.git . && \
+    pip3 install -e .
+
 # Clone and install ACE-Step 1.5 from source
-WORKDIR /src
+WORKDIR /src/ace-step
 RUN git clone https://github.com/ACE-Step/ACE-Step-1.5.git . && \
     pip3 install -e .
 
