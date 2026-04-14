@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Latest Torch (2026 Stack)
-RUN pip3 install torch==2.10.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+RUN pip3 install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 
 # Clone and install ACE-Step 1.5 from source
 WORKDIR /src
