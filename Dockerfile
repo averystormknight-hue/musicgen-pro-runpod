@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Latest Torch
-RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
+# Install Latest Torch (2026 Stack)
+RUN pip3 install torch==2.10.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
 
 # Clone and install ACE-Step 1.5 from source
 WORKDIR /src
