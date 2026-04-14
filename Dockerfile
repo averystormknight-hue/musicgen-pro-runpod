@@ -1,7 +1,8 @@
 FROM --platform=linux/amd64 nvidia/cuda:12.4.1-runtime-ubuntu22.04
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    PIP_EXTRA_INDEX_URL=https://download.pytorch.org/whl/cu128
 
 # System dependencies
 RUN apt-get update && apt-get install -y --no-install-recommends \
