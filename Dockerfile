@@ -12,8 +12,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Install Latest Torch
 RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu124
 
-# Install ACE-Step library (Assuming it's on pip or git in 2026)
-RUN pip3 install ace-step-audio runpod soundfile
+# Clone and install ACE-Step 1.5 from source
+WORKDIR /src
+RUN git clone https://github.com/ACE-Step/ACE-Step-1.5.git . && \
+    pip3 install -e .
+
+# Install additional requirements
+RUN pip3 install runpod soundfile
 
 # App Layer
 WORKDIR /app
