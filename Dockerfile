@@ -23,7 +23,7 @@ RUN ln -sf /usr/bin/python3.11 /usr/bin/python3 && \
 
 # Install uv for fast dependency management
 RUN curl -LsSf https://astral.sh/uv/install.sh | sh
-ENV PATH="/root/.cargo/bin:$PATH"
+ENV PATH="/root/.local/bin:$PATH"
 
 # Install Torch (2026 Stack)
 RUN uv pip install --system --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
